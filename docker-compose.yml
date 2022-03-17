@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      network: host
+    container_name: baidunetdisk
+    ports:
+      - 6080:6080
+      - "5900"
+    volumes:
+      - ./config:/root/.config/baidunetdisk
+      - ./download:/root/baidunetdiskdownload

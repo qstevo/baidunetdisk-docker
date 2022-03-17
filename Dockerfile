@@ -7,14 +7,14 @@ ENV VNC_SERVER_PASSWD password
 
 ENV LC_ALL C.UTF-8
 ENV LANG C.UTF-8
-ENV LANGUAGE zh_CN:zh
+# ENV LANGUAGE zh_CN:zh
 
 # Variables needed for non interactive tzdata installation.
 ENV TZ=Asia/Shanghai
 ENV DEBIAN_FRONTEND="noninteractive"
 
-RUN apt-get -qqy update && \
-  apt-get -qqy install \
+RUN apt-get -y update && apt-get -yq install apt-transport-https apt-utils && \
+    apt-get -qqy install \
     supervisor \
     wget \
     x11vnc \
@@ -61,7 +61,7 @@ RUN setcap -r `which i3status`
 COPY supervisord.conf /root/supervisord.conf
 COPY i3_config /root/.config/i3/config
 
-EXPOSE 5900
+EXPOSE 5901
 EXPOSE 6080
 
 CMD echo "VNC (vnc://localhost:5900) password is $VNC_SERVER_PASSWD" && \
