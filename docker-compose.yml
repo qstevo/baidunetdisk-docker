@@ -12,3 +12,5 @@ services:
     volumes:
       - ./config:/root/.config/baidunetdisk
       - ./download:/root/baidunetdiskdownload
+    environment:
+      - VNC_SERVER_PASSWD=password

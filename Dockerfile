@@ -53,7 +53,21 @@ RUN wget ${NOVNC_PACKAGE} -O novnc.tar.gz && \
   mkdir -p /root/novnc && \
   tar -xzf novnc.tar.gz -C /root/novnc && \
   rm novnc.tar.gz websockify.tar.gz -f && \
-  mv /root/novnc/noVNC-* /root/novnc/noVNC
+  mv /root/novnc/noVNC-* /root/novnc/noVNC && \
+  echo -e \
+  "<!DOCTYPE html>\n" \
+  "<html>\n" \
+  "    <head>\n" \
+  "        <title>noVNC</title>\n" \
+  "        <meta charset=\"utf-8\"/>\n" \
+  "    </head>\n" \
+  "    <body>\n" \
+  "        <p><a href=\"vnc_lite.html\">noVNC Lite Client</a></p>\n" \
+  "        <p><a href=\"vnc.html\">noVNC Full Client</a></p>\n" \
+  "    </body>\n" \
+  "</html>" \
+  > /root/novnc/noVNC/index.html
+  # openssl req -new -x509 -days 3650 -nodes -out /root/self.pem -keyout /root/self.pem -subj="/CN=self-novnc"
 
 # Remove cap_net_admin capabilities to avoid failing with 'operation not permitted'.
 RUN setcap -r `which i3status`
@@ -61,7 +75,7 @@ RUN setcap -r `which i3status`
 COPY supervisord.conf /root/supervisord.conf
 COPY i3_config /root/.config/i3/config
 
-EXPOSE 5901
+EXPOSE 5900
 EXPOSE 6080
 
 CMD echo "VNC (vnc://localhost:5900) password is $VNC_SERVER_PASSWD" && \
