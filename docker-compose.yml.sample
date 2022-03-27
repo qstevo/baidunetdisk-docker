@@ -13,4 +13,4 @@ services:
       - ./config:/root/.config/baidunetdisk
       - ./download:/root/baidunetdiskdownload
     environment:
-      - VNC_SERVER_PASSWD=password
+      - VNC_SERVER_PASSWD=

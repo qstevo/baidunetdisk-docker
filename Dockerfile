@@ -60,6 +60,7 @@ RUN wget ${NOVNC_PACKAGE} -O novnc.tar.gz && \
   "    <head>\n" \
   "        <title>noVNC</title>\n" \
   "        <meta charset=\"utf-8\"/>\n" \
+  "        <meta http-equiv=\"refresh\" content=\"1; URL=vnc_lite.html\" />\n" \
   "    </head>\n" \
   "    <body>\n" \
   "        <p><a href=\"vnc_lite.html\">noVNC Lite Client</a></p>\n" \
