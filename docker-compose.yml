@@ -6,11 +6,12 @@ services:
       context: .
       network: host
     container_name: baidunetdisk
+    restart: "no"
     ports:
       - 6080:6080
       - "5900"
     volumes:
       - ./config:/root/.config/baidunetdisk
-      - ./download:/root/baidunetdiskdownload
+      - /mnt/d/baidupan:/root/baidunetdiskdownload
     environment:
-      - VNC_SERVER_PASSWD=
+      - VNC_SERVER_PASSWD=pan

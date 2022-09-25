@@ -1,6 +1,6 @@
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
-ENV BAIDUNETDISK_PACKAGE https://issuepcdn.baidupcs.com/issue/netdisk/LinuxGuanjia/4.3.0/baidunetdisk_4.3.0_amd64.deb
+ENV BAIDUNETDISK_PACKAGE https://issuepcdn.baidupcs.com/issue/netdisk/LinuxGuanjia/4.12.5/baidunetdisk_4.12.5_amd64.deb
 ENV NOVNC_PACKAGE https://github.com/novnc/noVNC/archive/refs/tags/v1.3.0.tar.gz
 
 ENV VNC_SERVER_PASSWD password
@@ -10,10 +10,10 @@ ENV LANG C.UTF-8
 # ENV LANGUAGE zh_CN:zh
 
 # Variables needed for non interactive tzdata installation.
-ENV TZ=Asia/Shanghai
+ENV TZ=America/Los_Angeles
 ENV DEBIAN_FRONTEND="noninteractive"
 
-RUN apt-get -y update && apt-get -yq install apt-transport-https apt-utils && \
+RUN apt-get -y update && apt-get -qqy install apt-transport-https apt-utils && \
     apt-get -qqy install \
     supervisor \
     wget \
