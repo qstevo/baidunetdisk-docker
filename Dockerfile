@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-ENV BAIDUNETDISK_PACKAGE https://issuepcdn.baidupcs.com/issue/netdisk/LinuxGuanjia/4.12.5/baidunetdisk_4.12.5_amd64.deb
+ENV BAIDUNETDISK_PACKAGE https://issuepcdn.baidupcs.com/issue/netdisk/LinuxGuanjia/4.14.5/baidunetdisk_4.14.5_amd64.deb
 ENV NOVNC_PACKAGE https://github.com/novnc/noVNC/archive/refs/tags/v1.3.0.tar.gz
 
 ENV VNC_SERVER_PASSWD password
